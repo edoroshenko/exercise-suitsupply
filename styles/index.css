@@ -1,0 +1,9 @@
+.view-article__title {
+    display: block;
+    margin: 10px 0 0 10px;
+}
+
+.view-relatedArticle
+{
+    display: block;
+}
