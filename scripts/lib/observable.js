@@ -1,3 +1,6 @@
+/**
+ * An implementation on Observable pattern
+ */
 var Observable = function() {
     this._handlers = {};
 }

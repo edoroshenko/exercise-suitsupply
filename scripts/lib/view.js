@@ -1,3 +1,6 @@
+/**
+ * View base class
+ */
 var View = function() {
     View.parent.constructor.apply(this, arguments);
 
@@ -6,16 +9,26 @@ var View = function() {
 
 inherit(View, Observable);
 
+/**
+ * Should return a {DOMElement}
+ */
 View.prototype._render = function() {
     throw 'Unimplemented';
 };
 
+/**
+ * Renders a view at the specified node
+ * @param {DOMElement} node
+ */
 View.prototype.renderAt = function(node) {
     this._parent = node;
     this._node = this._render();
     node.appendChild(this._node);
 };
 
+/**
+ * Rerenders a view at the same place
+ */
 View.prototype.update = function() {
     var newNode;
 
@@ -27,6 +40,12 @@ View.prototype.update = function() {
     }
 };
 
+/**
+ * Creates a DOMElement with specified tag name and options
+ * @param {String} tagName
+ * @param {Object} opts
+ * @returns {DOMElement}
+ */
 View.prototype.createElement = function(tagName, opts) {
     var element = document.createElement(tagName);
     var key;

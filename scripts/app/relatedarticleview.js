@@ -1,3 +1,6 @@
+/**
+ * Related article's view class
+ */
 var RelatedArticleView = function(article) {
     RelatedArticleView.parent.constructor.apply(this, arguments);
 
@@ -6,6 +9,10 @@ var RelatedArticleView = function(article) {
 
 inherit(RelatedArticleView, View);
 
+/**
+ * Renders related article's title
+ * @returns {DOMElement}
+ */
 RelatedArticleView.prototype._render = function() {
     return this.createElement('a', {
         classes: ['link', 'view-relatedArticle', 'title'],

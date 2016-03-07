@@ -1,3 +1,6 @@
+/**
+ * Model base class
+ */
 var Model = function() {
 
 };

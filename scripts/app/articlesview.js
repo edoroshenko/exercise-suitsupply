@@ -1,3 +1,6 @@
+/**
+ * Articles list view class
+ */
 var ArticlesView = function(articles) {
     ArticlesView.parent.constructor.apply(this, arguments);
 
@@ -14,11 +17,12 @@ var ArticlesView = function(articles) {
 
 inherit(ArticlesView, View);
 
+/**
+ * Renders articles list
+ * @returns {DOMElement}
+ */
 ArticlesView.prototype._render = function() {
-    return this._renderArticles(this.articles.items);
-};
-
-ArticlesView.prototype._renderArticles = function(articles) {
+    var articles = this.articles.items;
     var element = document.createElement('div');
     var filters;
 
@@ -43,6 +47,11 @@ ArticlesView.prototype._renderArticles = function(articles) {
     return element;
 };
 
+/**
+ * Filters articles given according to filters from the state
+ * @param {Array} articles
+ * @returns {Array}
+ */
 ArticlesView.prototype._filterArticles = function(articles) {
     var filters = this._state.filters;
     var regexp;
@@ -75,6 +84,11 @@ ArticlesView.prototype._filterArticles = function(articles) {
     }, this);
 };
 
+/**
+ * Applies a filter to the view
+ * @param {String} type
+ * @param {String} value
+ */
 ArticlesView.prototype.filter = function(type, value) {
     this._state.filters[type] = value;
     this.update();

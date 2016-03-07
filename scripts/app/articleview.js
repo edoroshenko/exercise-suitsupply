@@ -1,3 +1,6 @@
+/**
+ * Single article view class
+ */
 var ArticleView = function(article) {
     ArticleView.parent.constructor.apply(this, arguments);
 
@@ -10,6 +13,10 @@ var ArticleView = function(article) {
 
 inherit(ArticleView, View);
 
+/**
+ * Renders article's content
+ * @returns {DOMElement}
+ */
 ArticleView.prototype._render = function() {
     var element = this.createElement('div', {classes: ['view', 'view-article']});
     
@@ -26,6 +33,25 @@ ArticleView.prototype._render = function() {
     return element;
 };
 
+/**
+ * Renders article's title
+ * @returns {DOMElement}
+ */
+ArticleView.prototype._renderTitle = function() {
+    var title = this.createElement('div', {
+        classes: ['view-article__title', 'title'],
+        textContent: this.article.data.title
+    });
+
+    title.addEventListener('click', this._onClickTitle.bind(this));
+
+    return title;
+};
+
+/**
+ * Renders article's body
+ * @returns {DOMElement}
+ */
 ArticleView.prototype._renderBody = function() {
     var data = this.article.data;
     var imageData = data.image;
@@ -72,6 +98,10 @@ ArticleView.prototype._renderBody = function() {
     return body;
 };
 
+/**
+ * Renders article's related stories
+ * @returns {DOMElement}
+ */
 ArticleView.prototype._renderRelated = function() {
     var container = this.createElement('div', {
         classes: ['view-article__relatedArticles']
@@ -93,17 +123,9 @@ ArticleView.prototype._renderRelated = function() {
     return container;
 };
 
-ArticleView.prototype._renderTitle = function() {
-    var title = this.createElement('div', {
-        classes: ['view-article__title', 'title'],
-        textContent: this.article.data.title
-    });
-
-    title.addEventListener('click', this._onClickTitle.bind(this));
-
-    return title;
-};
-
+/**
+ * Handles expander's click event
+ */
 ArticleView.prototype._onClickTitle = function(e) {
     this._state.expanded = !this._state.expanded;
     this.update();

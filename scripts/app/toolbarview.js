@@ -1,12 +1,18 @@
+/**
+ * Toolbar view class
+ */
 var ToolbarView = function(articles) {
     ToolbarView.parent.constructor.apply(this, arguments);
 
-    this._initValues(articles);
+    this._initFiltersValues(articles);
 };
 
 inherit(ToolbarView, View);
 
-ToolbarView.prototype._initValues = function(articles) {
+/**
+ * Initializes available filters values
+ */
+ToolbarView.prototype._initFiltersValues = function(articles) {
     this.yearValues = [];
     this.monthValues = [];
     this.dateValues = [];
@@ -31,6 +37,10 @@ ToolbarView.prototype._initValues = function(articles) {
     }, this);
 };
 
+/**
+ * Renders toolbar's content
+ * @returns {DOMElement}
+ */
 ToolbarView.prototype._render = function() {
     var toolbar = this.createElement('div', {
         classes: ['view-toolbar']
@@ -42,7 +52,10 @@ ToolbarView.prototype._render = function() {
     return toolbar;
 };
 
-
+/**
+ * Renders text filter
+ * @returns {DOMElement}
+ */
 ToolbarView.prototype._renderTextFilter = function() {
     var input = this.createElement('input', {
         classes: ['view-toolbar__text-filter'],
@@ -54,12 +67,20 @@ ToolbarView.prototype._renderTextFilter = function() {
     return input;
 };
 
+/**
+ * Handles input's keyup event
+ * @param {Event} e
+ */
 ToolbarView.prototype._onKeyUpTextFilter = function(e) {
     this.trigger('filter', {
         type: 'text', value: e.target.value
     });
 };
 
+/**
+ * Renders dates filter
+ * @returns {DOMElement}
+ */
 ToolbarView.prototype._renderDatesFilter = function() {
     var container = this.createElement('div', {
         classes: ['view-toolbar__date-filter']
@@ -89,11 +110,19 @@ ToolbarView.prototype._renderDatesFilter = function() {
     return container;
 };
 
+/**
+ * Handles select's select event
+ * @param {Event} e
+ */
 ToolbarView.prototype._onSelectDatePart = function(e) {
     var select = e.target;
     this.trigger('filter', {type: select.getAttribute('name'), value: select.value});
 };
 
+/**
+ * Renders select with passed values
+ * @returns {DOMElement}
+ */
 ToolbarView.prototype._renderSelect = function(values, opts) {
     var select = this.createElement('select', opts);
 
