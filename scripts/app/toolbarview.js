@@ -66,12 +66,15 @@ ToolbarView.prototype._renderDatesFilter = function() {
     });
 
     var yearSelect = this._renderSelect(this.yearValues, {
+        classes: ['view-toolbar__select', 'view-toolbar__select_name_year'],
         attrs: {name: 'year'}
     });
     var monthSelect = this._renderSelect(this.monthValues, {
+        classes: ['view-toolbar__select', 'view-toolbar__select_name_month'],
         attrs: {name: 'month'}
     });
     var dateSelect = this._renderSelect(this.dateValues, {
+        classes: ['view-toolbar__select', 'view-toolbar__select_name_date'],
         attrs: {name: 'date'}
     });
 

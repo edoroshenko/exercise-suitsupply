@@ -1,9 +1,87 @@
-.view-article__title {
-    display: block;
-    margin: 10px 0 0 10px;
+.view-toolbar
+{
+    margin: 20px;
+}
+
+.view-toolbar__text-filter,
+.view-toolbar__date-filter
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.view-toolbar__date-filter
+{
+    margin-left: 20px;
+}
+
+.view-toolbar__select
+{
+    margin-right: 10px;
+}
+
+.view-article
+{
+    margin: 20px;
+    clear: both;
+}
+
+.view-article__title
+{
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.view-article__image
+{
+    float: left;
+    margin: 0 15px 15px 0;
+}
+
+.view-article__subtitle
+{
+    clear: both;
+    margin: 15px 0;
+    font-size: 1.2em;
+}
+
+.view-article__read-more
+{
+    margin-left: 0.3em;
+}
+
+.view-article__relatedArticles .view-relatedArticle
+{
+    padding-left: 20px;
 }
 
 .view-relatedArticle
 {
     display: block;
+    font-size: 0.9em;
+    margin: 6px 0;
+}
+
+.title
+{
+    font-family: verdana, sans-serif;
+}
+
+.link
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link,
+.link:visited
+{
+    color: black;
+}
+
+.link:hover
+{
+    color: red;
 }

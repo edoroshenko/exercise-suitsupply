@@ -8,7 +8,7 @@ inherit(RelatedArticleView, View);
 
 RelatedArticleView.prototype._render = function() {
     return this.createElement('a', {
-        classes: ['view-relatedArticle'],
+        classes: ['link', 'view-relatedArticle', 'title'],
         attrs: {
             href: this.article.data.unescapedUrl,
             target: '_blank'
