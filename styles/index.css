@@ -10,11 +10,12 @@
     vertical-align: top;
 }
 
-.view-toolbar__date-filter
+.view-toolbar__label
 {
-    margin-left: 20px;
+    margin-right: 10px;
 }
 
+.view-toolbar__text-filter,
 .view-toolbar__select
 {
     margin-right: 10px;

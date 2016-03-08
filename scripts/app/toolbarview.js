@@ -46,7 +46,18 @@ ToolbarView.prototype._render = function() {
         classes: ['view-toolbar']
     });
 
+    toolbar.appendChild(this.createElement('label', {
+        classes: ['view-toolbar__label'],
+        attrs: {
+            for: 'view-toolbar__text-filter'
+        },
+        textContent: 'Keywords:'
+    }));
     toolbar.appendChild(this._renderTextFilter());
+    toolbar.appendChild(this.createElement('label', {
+        classes: ['view-toolbar__label'],
+        textContent: 'Date:'
+    }));
     toolbar.appendChild(this._renderDatesFilter());
 
     return toolbar;
@@ -59,7 +70,7 @@ ToolbarView.prototype._render = function() {
 ToolbarView.prototype._renderTextFilter = function() {
     var input = this.createElement('input', {
         classes: ['view-toolbar__text-filter'],
-        attrs: {type: 'text'}
+        attrs: {type: 'text', id: 'view-toolbar__text-filter'}
     });
 
     input.addEventListener('keyup', this._onKeyUpTextFilter.bind(this));
